@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  display: flex;
+  
+  align-items: center;
+  background: linear-gradient(270deg, #74ebd5, #acb6e5, #fbc2eb, #a6c1ee);
+  background-size: 800% 800%;
+  animation: gradientMove 20s ease infinite;
+}
+
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  animation: breathe 6s ease-in-out infinite;
+  
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#task-form button {
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#task-form button:hover {
+  background: #0056b3;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.filters button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: #007bff;
+  color: white;
+}
+
+#task-list {
+  list-style: none;
+}
+
+.task-item {
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
+button:hover {
+  background-color: #5750d6;
+}
+
+
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  color: #333;
+}
+.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.task-actions button:hover {
+  color: #007bff;
+}
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 100;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(270deg, #141E30, #243B55);
+  }
+  .container {
+    background: #1e1e2f;
+    color: #f1f1f1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+}
